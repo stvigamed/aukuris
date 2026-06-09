@@ -22,11 +22,11 @@ npm run preview
 
 The site deploys automatically on push to `main` or `master` via [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
 
-**Live URL:** [https://vborisok.github.io/aukuris/](https://vborisok.github.io/aukuris/)
+**Live URL:** [https://vborisok.github.io/](https://vborisok.github.io/)
 
 ### First-time setup
 
-1. Push this repo to GitHub (`vborisok/aukuris`).
+1. Push this repo to GitHub (`vborisok/vborisok.github.io`).
 2. Go to **Settings → Pages**.
 3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
 4. After the first workflow run, the site is available at the URL above.

@@ -2,34 +2,36 @@
 const base = import.meta.env.BASE_URL
 ---
 <section class="main" id="main">
-  <div class="left-column">
-    <img
-      src={`${base}assets/main-page.png`}
-      class="figure"
-      alt="Laboratory equipment and healthcare technology illustration"
-      width="1920"
-      height="1080"
-      fetchpriority="high"
-    />
-    <img
-      src={`${base}assets/logo.svg`}
-      class="logo"
-      data-aos="fade-right"
-      data-aos-delay="300"
-      alt="MB Aukuris Lithuania logo"
-      width="672"
-      height="200"
-    />
-  </div>
-  <div class="right-column fade-left">
-    <div class="right-column__text">
-      <h1 class="hero-title">Laboratory Equipment &amp; Healthcare Technology</h1>
-      <p>
-        We search and implement new lab technologies, equipment, and testing
-        systems, relying on regional partners and distribution companies to
-        collaborate on restructuring and equipping institutions and making
-        healthcare accessible and affordable.
-      </p>
+  <div class="container">
+    <div class="hero">
+      <div class="hero__visual" data-aos="fade-up" data-aos-duration="600">
+        <img
+          src={`${base}assets/logo.svg`}
+          class="hero__logo"
+          alt="MB Aukuris Lithuania logo"
+          width="672"
+          height="200"
+          fetchpriority="high"
+        />
+      </div>
+
+      <div class="hero__content" data-aos="fade-up" data-aos-duration="600" data-aos-delay="150">
+        <h1 class="hero-title">Laboratory Equipment &amp; Healthcare Technology</h1>
+        <p class="hero__description">
+          We search and implement new lab technologies, equipment, and testing
+          systems — partnering across the region to equip institutions and make
+          healthcare accessible and affordable.
+        </p>
+        <div class="hero__actions">
+          <a href="#products" class="btn btn--primary">Browse Products</a>
+          <a href="#contact" class="btn btn--secondary">Get in Touch</a>
+        </div>
+        <ul class="hero__highlights" aria-label="What we offer">
+          <li>Diagnostic systems</li>
+          <li>Lab instruments</li>
+          <li>Institutional equipment</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>

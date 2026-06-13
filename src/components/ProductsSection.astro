@@ -3,8 +3,12 @@ import { products } from '../data/products'
 import ProductCard from './ProductCard.astro'
 ---
 <section class="products" id="products">
-  <h2 class="products-title">Everything you need for your laboratory</h2>
-  <div class="products-wrapper">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Our Products &amp; Partners</h2>
+    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+      Everything you need for your laboratory — from diagnostic systems to
+      institutional equipment, sourced through trusted regional partners.
+    </p>
     <div class="products-grid">
       {products.map((product) => (
         <ProductCard

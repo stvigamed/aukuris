@@ -1,13 +1,67 @@
 ---
+import { site } from '../data/site'
 import ContactForm from './ContactForm.astro'
+
+const base = import.meta.env.BASE_URL
 ---
 <section class="contact" id="contact">
-  <h2 class="products-title" data-aos="fade-left">
-    Contact us
-  </h2>
-  <div class="right-column">
-    <div class="form-container">
-      <ContactForm />
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
+    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+      Reach out for product information, pricing, or partnership inquiries.
+      We typically respond within one business day.
+    </p>
+
+    <div class="contact__grid">
+      <div class="contact__info" data-aos="fade-right" data-aos-delay="150">
+        <div class="contact-card">
+          <p class="contact-card__label">Phone</p>
+          <p class="contact-card__value">
+            <a href={`tel:${site.phone}`}>+48 513 416 750</a>
+          </p>
+          <div class="contact-card__channels">
+            <a
+              href="https://t.me/+48513416750/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-card__channel"
+              aria-label="Message us on Telegram"
+            >
+              <img src={`${base}assets/telegram.svg`} alt="" />
+            </a>
+            <a
+              href="https://wa.me/+48513416750"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-card__channel"
+              aria-label="Message us on WhatsApp"
+            >
+              <img src={`${base}assets/whatsapp.svg`} alt="" />
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <p class="contact-card__label">Email</p>
+          <p class="contact-card__value">
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <p class="contact-card__label">Company Info</p>
+          <p class="contact-card__value">
+            {site.address.street}, {site.address.city}
+          </p>
+          <p class="contact-card__value" style="font-size: 0.85rem; font-weight: 400; margin-top: 0.25rem; color: var(--color-text-muted);">
+            Įm. kodas {site.companyCode} · PVM {site.vatId}
+          </p>
+        </div>
+      </div>
+
+      <div class="contact__form-wrapper" data-aos="fade-left" data-aos-delay="200">
+        <ContactForm />
+      </div>
     </div>
   </div>
 </section>

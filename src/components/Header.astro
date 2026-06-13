@@ -1,34 +1,48 @@
 ---
+const base = import.meta.env.BASE_URL
+
 const navItems = [
-  { href: '#main', label: 'Main Page', className: 'main-link', aos: 'flip-left', delay: 0 },
-  { href: '#products', label: 'Products', className: 'products-link', aos: 'flip-up', delay: 300 },
-  { href: '#contact', label: 'Contact us', className: 'contact-link', aos: 'flip-right', delay: 500 },
+  { href: '#main', label: 'Home' },
+  { href: '#products', label: 'Products' },
+  { href: '#contact', label: 'Contact', cta: true },
 ]
 ---
 <header class="header">
   <div class="container">
     <div class="header__row">
-      <nav class="header-menu">
-        <ul class="header-menu__list">
-          {navItems.map((item) => (
-            <li
-              class={`header-menu__item ${item.className}`}
-              data-aos={item.aos}
-              data-aos-duration="500"
-              data-aos-delay={item.delay || undefined}
-            >
-              <a href={item.href} class="header-menu__link">
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+      <a href="#main" class="header__logo" aria-label="Aukuris — back to top">
+        <img src={`${base}assets/logo.svg`} alt="MB Aukuris Lithuania" width="140" height="42" />
+      </a>
+
+      <button
+        class="menu-burger"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="header-menu" id="site-nav" aria-label="Main navigation">
+        <div class="header-menu__overlay" aria-hidden="true"></div>
+        <div class="header-menu__panel">
+          <ul class="header-menu__list">
+            {navItems.map((item) => (
+              <li class="header-menu__item">
+                <a
+                  href={item.href}
+                  class:list={['header-menu__link', { 'header-menu__link--cta': item.cta }]}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </nav>
-      <div class="menu-burger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
     </div>
   </div>
 </header>
@@ -36,16 +50,60 @@ const navItems = [
 <script>
   const burger = document.querySelector('.menu-burger')
   const menu = document.querySelector('.header-menu')
+  const overlay = document.querySelector('.header-menu__overlay')
+  const links = document.querySelectorAll('.header-menu__link')
+  const sections = document.querySelectorAll('section[id]')
+
+  function closeMenu() {
+    burger?.classList.remove('active')
+    menu?.classList.remove('active')
+    burger?.setAttribute('aria-expanded', 'false')
+    burger?.setAttribute('aria-label', 'Open menu')
+    document.body.style.overflow = ''
+  }
+
+  function openMenu() {
+    burger?.classList.add('active')
+    menu?.classList.add('active')
+    burger?.setAttribute('aria-expanded', 'true')
+    burger?.setAttribute('aria-label', 'Close menu')
+    document.body.style.overflow = 'hidden'
+  }
 
   burger?.addEventListener('click', () => {
-    burger.classList.toggle('active')
-    menu?.classList.toggle('active')
+    if (menu?.classList.contains('active')) {
+      closeMenu()
+    } else {
+      openMenu()
+    }
   })
 
-  document.querySelectorAll('.header-menu__link').forEach((link) => {
-    link.addEventListener('click', () => {
-      burger?.classList.remove('active')
-      menu?.classList.remove('active')
-    })
+  overlay?.addEventListener('click', closeMenu)
+
+  links.forEach((link) => {
+    link.addEventListener('click', closeMenu)
   })
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu()
+  })
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id')
+          links.forEach((link) => {
+            link.classList.toggle(
+              'header-menu__link--active',
+              link.getAttribute('href') === `#${id}`
+            )
+          })
+        }
+      })
+    },
+    { rootMargin: '-40% 0px -55% 0px' }
+  )
+
+  sections.forEach((section) => observer.observe(section))
 </script>

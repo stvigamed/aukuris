@@ -20,20 +20,22 @@ npm run preview
 
 ## GitHub Pages deployment
 
-The site deploys automatically on push to `main` or `master` via [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
+The site deploys automatically on push to `main` via [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
 
-**Live URL:** [https://vborisok.github.io/](https://vborisok.github.io/)
+**Live URL:** [https://aukuris.lt](https://aukuris.lt)
 
 ### First-time setup
 
-1. Push this repo to GitHub (`vborisok/vborisok.github.io`).
+1. Push this repo to GitHub (`stvigamed/aukuris`).
 2. Go to **Settings → Pages**.
 3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-4. After the first workflow run, the site is available at the URL above.
+4. Under **Custom domain**, enter `aukuris.lt` and enable **Enforce HTTPS** once DNS is verified.
+5. Configure DNS at your domain registrar:
+   - **A records** pointing to GitHub Pages IPs: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - Or a **CNAME** record: `www` → `stvigamed.github.io` (if using `www.aukuris.lt`)
+6. After the first workflow run, the site is available at the URL above.
 
-### Switching to a custom domain later
-
-To use `aukuris.lt` instead, add `public/CNAME` with `aukuris.lt`, set `base: '/'` in `astro.config.mjs`, and configure DNS in GitHub Pages settings.
+The [`public/CNAME`](public/CNAME) file tells GitHub Pages to serve the site at the custom domain.
 
 ## Project structure
 
@@ -46,6 +48,8 @@ src/
   styles/         # Global CSS ported from the original site
 public/
   assets/         # Images, logos, favicons
+  CNAME           # Custom domain for GitHub Pages
+  .nojekyll       # Disables Jekyll so _astro/ assets are served
 ```
 
 ## Contact form

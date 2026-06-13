@@ -19,7 +19,7 @@ a {
 }
 
 .background {
-    background-image: url('/assets/bg.jpg');
+    background-image: url('../assets/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     position: fixed;
@@ -236,7 +236,7 @@ a {
 }
 
 .right-column {
-    background: url('/assets/transparent-figure.png');
+    background: url('../assets/transparent-figure.png');
     background-repeat: no-repeat;
     position: absolute;
     background-position: center;
@@ -560,7 +560,7 @@ a {
         margin-bottom: 70px;
     }
     .contact .right-column {
-        background: url('/assets/transparent-figure.png');
+        background: url('../assets/transparent-figure.png');
         background-repeat: no-repeat;
         background-position: center;
         padding-right: 0;

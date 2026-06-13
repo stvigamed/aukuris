@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config'
 
 export default defineConfig({
-  site: 'https://vborisok.github.io',
+  site: 'https://aukuris.lt',
   base: '/',
   outDir: 'dist',
 })

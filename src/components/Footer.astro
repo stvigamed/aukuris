@@ -1,3 +1,6 @@
+---
+const base = import.meta.env.BASE_URL
+---
 <footer class="footer" data-aos="fade-up" data-aos-delay="400">
   <div class="footer-container">
     <div class="footer-info">
@@ -16,7 +19,7 @@
           rel="noreferrer"
           class="footer-icon"
         >
-          <img src="/assets/telegram.svg" alt="telegram" />
+          <img src={`${base}assets/telegram.svg`} alt="telegram" />
         </a>
         <a
           href="https://wa.me/+48513416750"
@@ -24,7 +27,7 @@
           rel="noreferrer"
           class="footer-icon"
         >
-          <img src="/assets/whatsapp.svg" alt="whatsapp" />
+          <img src={`${base}assets/whatsapp.svg`} alt="whatsapp" />
         </a>
       </div>
     </div>

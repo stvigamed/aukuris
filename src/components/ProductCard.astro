@@ -1,5 +1,6 @@
 ---
 const { logo, image, delay } = Astro.props
+const base = import.meta.env.BASE_URL
 ---
 <div
   class="product-container"
@@ -9,9 +10,9 @@ const { logo, image, delay } = Astro.props
   data-aos-delay={delay || undefined}
 >
   <div class="product-logo">
-    <img src={logo} alt="product-logo" />
+    <img src={`${base}${logo}`} alt="product-logo" />
   </div>
   <div class="product-image-container">
-    <img src={image} class="product-image" alt="product" />
+    <img src={`${base}${image}`} class="product-image" alt="product" />
   </div>
 </div>

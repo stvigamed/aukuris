@@ -1,8 +1,11 @@
+---
+const base = import.meta.env.BASE_URL
+---
 <section class="main" id="main">
   <div class="left-column">
-    <img src="/assets/main-page.png" class="figure" alt="figures" />
+    <img src={`${base}assets/main-page.png`} class="figure" alt="figures" />
     <img
-      src="/assets/logo.svg"
+      src={`${base}assets/logo.svg`}
       class="logo"
       data-aos="fade-right"
       data-aos-delay="300"

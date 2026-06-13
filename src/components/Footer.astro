@@ -1,36 +1,43 @@
 ---
+import { site } from '../data/site'
+
 const base = import.meta.env.BASE_URL
 ---
 <footer class="footer" data-aos="fade-up" data-aos-delay="400">
   <div class="footer-container">
     <div class="footer-info">
       <div class="footer-info__text">
-        <a href="tel:++48513416750" class="footer-info__phone">
+        <a href={`tel:${site.phone}`} class="footer-info__phone">
           +48 513 416 750
         </a>
-        <a href="mailto:aukuris@inbox.lt" class="footer-info__email">
-          aukuris@inbox.lt
+        <a href={`mailto:${site.email}`} class="footer-info__email">
+          {site.email}
         </a>
+        <address class="footer-info__address">
+          {site.address.street}, {site.address.city}
+          <br />
+          Įm. kodas {site.companyCode} · PVM {site.vatId}
+        </address>
       </div>
       <div class="footer-icons">
         <a
           href="https://t.me/+48513416750/"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           class="footer-icon"
         >
-          <img src={`${base}assets/telegram.svg`} alt="telegram" />
+          <img src={`${base}assets/telegram.svg`} alt="Contact Aukuris on Telegram" />
         </a>
         <a
           href="https://wa.me/+48513416750"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           class="footer-icon"
         >
-          <img src={`${base}assets/whatsapp.svg`} alt="whatsapp" />
+          <img src={`${base}assets/whatsapp.svg`} alt="Contact Aukuris on WhatsApp" />
         </a>
       </div>
     </div>
-    <div class="footer-copyright">Copyright Aukuris 2023 | All Rights Reserved</div>
+    <div class="footer-copyright">Copyright Aukuris 2023–2026 | All Rights Reserved</div>
   </div>
 </footer>

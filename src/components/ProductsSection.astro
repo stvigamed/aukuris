@@ -3,7 +3,7 @@ import { products } from '../data/products'
 import ProductCard from './ProductCard.astro'
 ---
 <section class="products" id="products">
-  <h3 class="products-title">Everything you need for your laboratory</h3>
+  <h2 class="products-title">Everything you need for your laboratory</h2>
   <div class="products-wrapper">
     <div class="products-grid">
       {products.map((product) => (
@@ -11,6 +11,8 @@ import ProductCard from './ProductCard.astro'
           logo={product.logo}
           image={product.image}
           delay={product.delay}
+          logoAlt={product.logoAlt}
+          imageAlt={product.imageAlt}
         />
       ))}
     </div>

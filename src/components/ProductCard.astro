@@ -1,0 +1,17 @@
+---
+const { logo, image, delay } = Astro.props
+---
+<div
+  class="product-container"
+  data-aos="fade-up"
+  data-aos-duration="500"
+  data-aos-easing="linear"
+  data-aos-delay={delay || undefined}
+>
+  <div class="product-logo">
+    <img src={logo} alt="product-logo" />
+  </div>
+  <div class="product-image-container">
+    <img src={image} class="product-image" alt="product" />
+  </div>
+</div>

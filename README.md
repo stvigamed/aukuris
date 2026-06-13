@@ -1,6 +1,6 @@
 # MB Aukuris Lithuania
 
-React clone of [aukuris.lt](https://aukuris.lt/), built with Vite and deployed to GitHub Pages.
+Astro clone of [aukuris.lt](https://aukuris.lt/), deployed to GitHub Pages.
 
 ## Development
 
@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) to preview the site locally.
+Open [http://localhost:4321](http://localhost:4321) to preview the site locally.
 
 ## Build
 
@@ -33,12 +33,14 @@ The site deploys automatically on push to `main` or `master` via [`.github/workf
 
 ### Switching to a custom domain later
 
-To use `aukuris.lt` instead, add `public/CNAME` with `aukuris.lt`, set `base: '/'` in `vite.config.js`, and configure DNS in GitHub Pages settings.
+To use `aukuris.lt` instead, add `public/CNAME` with `aukuris.lt`, set `base: '/'` in `astro.config.mjs`, and configure DNS in GitHub Pages settings.
 
 ## Project structure
 
 ```
 src/
+  layouts/        # HTML shell, global styles, AOS init
+  pages/          # Route pages (index.astro)
   components/     # Header, HeroSection, ProductsSection, ContactForm, Footer
   data/           # Product image paths
   styles/         # Global CSS ported from the original site

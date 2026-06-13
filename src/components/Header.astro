@@ -1,0 +1,51 @@
+---
+const navItems = [
+  { href: '#main', label: 'Main Page', className: 'main-link', aos: 'flip-left', delay: 0 },
+  { href: '#products', label: 'Products', className: 'products-link', aos: 'flip-up', delay: 300 },
+  { href: '#contact', label: 'Contact us', className: 'contact-link', aos: 'flip-right', delay: 500 },
+]
+---
+<header class="header">
+  <div class="container">
+    <div class="header__row">
+      <nav class="header-menu">
+        <ul class="header-menu__list">
+          {navItems.map((item) => (
+            <li
+              class={`header-menu__item ${item.className}`}
+              data-aos={item.aos}
+              data-aos-duration="500"
+              data-aos-delay={item.delay || undefined}
+            >
+              <a href={item.href} class="header-menu__link">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <div class="menu-burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const burger = document.querySelector('.menu-burger')
+  const menu = document.querySelector('.header-menu')
+
+  burger?.addEventListener('click', () => {
+    burger.classList.toggle('active')
+    menu?.classList.toggle('active')
+  })
+
+  document.querySelectorAll('.header-menu__link').forEach((link) => {
+    link.addEventListener('click', () => {
+      burger?.classList.remove('active')
+      menu?.classList.remove('active')
+    })
+  })
+</script>

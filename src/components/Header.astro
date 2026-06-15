@@ -2,15 +2,15 @@
 const base = import.meta.env.BASE_URL
 
 const navItems = [
-  { href: '#main', label: 'Home' },
-  { href: '#products', label: 'Products' },
-  { href: '#contact', label: 'Contact', cta: true },
+  { href: `${base}#main`, label: 'Home' },
+  { href: `${base}#products`, label: 'Products' },
+  { href: `${base}#contact`, label: 'Contact', cta: true },
 ]
 ---
 <header class="header">
   <div class="container">
     <div class="header__row">
-      <a href="#main" class="header__logo" aria-label="Aukuris — back to top">
+      <a href={`${base}#main`} class="header__logo" aria-label="Aukuris — back to home">
         <img src={`${base}assets/logo.svg`} alt="MB Aukuris Lithuania" width="140" height="42" />
       </a>
 

@@ -4,9 +4,9 @@ import { site } from '../data/site'
 const base = import.meta.env.BASE_URL
 
 const footerLinks = [
-  { href: '#main', label: 'Home' },
-  { href: '#products', label: 'Products' },
-  { href: '#contact', label: 'Contact' },
+  { href: `${base}#main`, label: 'Home' },
+  { href: `${base}#products`, label: 'Products' },
+  { href: `${base}#contact`, label: 'Contact' },
 ]
 ---
 <footer class="footer">

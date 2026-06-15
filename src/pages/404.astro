@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import { site } from '../data/site'
+
+Astro.response.status = 404
+Astro.response.statusText = 'Not Found'
+
+const base = import.meta.env.BASE_URL
+const title = `Page Not Found | ${site.name}`
+const description =
+  'The page you are looking for could not be found. Return to the MB Aukuris homepage.'
+---
+
+<Layout title={title} description={description} noindex includeSchema={false}>
+  <div class="page-shell">
+    <div class="background"></div>
+    <Header />
+    <main id="main" class="not-found">
+      <div class="not-found__content">
+        <p class="not-found__code" aria-hidden="true">404</p>
+        <h1 class="not-found__title">Page not found</h1>
+        <p class="not-found__text">
+          The page you are looking for does not exist or may have been moved.
+        </p>
+        <a href={base} class="btn btn--primary">Back to home</a>
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Layout>
